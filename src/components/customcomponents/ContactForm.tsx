@@ -38,7 +38,7 @@ export default function ContactForm() {
   };
 
   return (
-    <Card className="w-1/2 min-w-min -mt-60">
+    <Card className="w-1/2 pt-10">
       <CardHeader>
         <CardTitle>Let´s get connected!</CardTitle>
         <CardDescription>
