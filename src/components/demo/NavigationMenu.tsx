@@ -88,7 +88,7 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild>
-            <Link to="/" className={navigationMenuTriggerStyle()}>
+            <Link to="/imprint" className={navigationMenuTriggerStyle()}>
               Imprint
             </Link>
           </NavigationMenuLink>
