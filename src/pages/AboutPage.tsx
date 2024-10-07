@@ -20,7 +20,7 @@ export default function AboutPage() {
 
 
           When I'm not coding, you can find me reading, drawing or playing with my cats. `}
-        profileImageUrl="/src/assets/icons/Nadja_Probst-black.jpg"
+        profileImageUrl="/icons/Nadja_Probst-black.jpg"
       />
     </div>
   );
