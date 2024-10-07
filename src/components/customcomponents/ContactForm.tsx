@@ -38,7 +38,7 @@ export default function ContactForm() {
   };
 
   return (
-    <Card className="w-[500px] ">
+    <Card className="w-1/2 min-w-min -mt-60">
       <CardHeader>
         <CardTitle>Let´s get connected!</CardTitle>
         <CardDescription>
@@ -46,7 +46,7 @@ export default function ContactForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="space-y-6 max-lg">
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
             <Input
