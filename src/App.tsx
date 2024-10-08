@@ -1,10 +1,14 @@
 import "./App.css";
 import Router from "../src/router/Router.tsx";
 
+import { ThemeProvider } from "./context/ThemeProvider.tsx";
+
 function App() {
   return (
     <>
-      <Router />
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <Router />
+      </ThemeProvider>
     </>
   );
 }
