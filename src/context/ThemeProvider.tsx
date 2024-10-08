@@ -86,7 +86,7 @@ export function ThemeProvider({
   }, [theme]);
 
   const value = {
-    theme: theme, // The current theme.
+    theme, // The current theme.
     setTheme: (theme: Theme) => {
       // key setTheme is assigned a function that takes a theme as an argument and sets the theme.
       localStorage.setItem(storageKey, theme); // Store the theme in local storage.
@@ -106,10 +106,7 @@ export function ThemeProvider({
 export const useTheme = () => {
   const themeContext = useContext(ThemeProviderContext);
 
-  // If the themeContext is undefined, it means that the useTheme hook is being used outside of a ThemeProvider component. This is an error
-  if (themeContext === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
+  // TODO: If the themeContext is undefined, it means that the useTheme hook is being used outside of a ThemeProvider component. This is an error
 
-    return themeContext;
-  }
+  return themeContext; // why return themeContext? Because the useTheme hook returns the theme and setTheme function from the ThemeProviderContext.
 };
