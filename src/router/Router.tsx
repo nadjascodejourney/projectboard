@@ -8,6 +8,7 @@ import AboutPage from "@/pages/AboutPage";
 import ProjectPage from "@/pages/ProjectPage";
 import CVPage from "@/pages/CVPage";
 import ContactPage from "@/pages/ContactPage";
+import Imprint from "@/pages/Imprint.tsx";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const Router = () => {
         {
           path: "contact",
           element: <ContactPage />,
+        },
+        {
+          path: "imprint",
+          element: <Imprint />,
         },
       ],
     },
