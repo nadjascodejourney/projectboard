@@ -10,20 +10,29 @@ import { Card, CardContent } from "@/components/ui/card.tsx";
 
 export function CarouselDemo() {
   return (
-    <Carousel className="w-full max-w-xs">
-      <CarouselContent>
-        {Array.from({ length: 7 }).map((_, index) => (
-          <CarouselItem className="basis-1/3" key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
+    <Carousel className="w-1/2">
+      <CarouselContent className="mt-2 p-5">
+        {Array.from({ length: 4 }).map(
+          (
+            _, // eslint-disable-line no-unused-vars
+            index // Array.from because we need to map over an array of undefined values
+          ) => (
+            <CarouselItem
+              className="basis-1/2 sm:basis-1/3 lg:basis-1/5"
+              key={index}
+            >
+              <div className="p-1">
+                <Card>
+                  <CardContent className="flex aspect-square items-center justify-center p-4">
+                    <span className="text-4xl font-semibold">{index + 1}</span>
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          )
+        )}
       </CarouselContent>
+
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>

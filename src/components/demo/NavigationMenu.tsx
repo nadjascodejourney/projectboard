@@ -17,7 +17,7 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Webdevelopment",
     href: "/projects",
-    description: "Past Projects and Tech Stack.",
+    description: "Current and past Projects.",
   },
   {
     title: "Webdesign",
@@ -25,14 +25,9 @@ const components: { title: string; href: string; description: string }[] = [
     description: "Designs I´ve created for websites.",
   },
   {
-    title: "Current Projects",
-    href: "/projects",
-    description: "Projects, I'm currently working on.",
-  },
-  {
     title: "Other Projects",
     href: "/projects",
-    description: "Other things I´ve done in the past.",
+    description: "Other projects, I´ve done in the past.",
   },
 ];
 
@@ -73,7 +68,7 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Work</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 sm:w-[200px] md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="grid gap-3 p-4 sm:w-[200px] md:w-[500px] lg:w-[600px] md:grid-cols-2">
               {components.map((component) => (
                 <ListItem
                   key={component.title}
