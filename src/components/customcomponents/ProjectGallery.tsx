@@ -94,9 +94,7 @@ export default function ProjectGallery() {
       className="min-h-screen bg-background text-foreground p-8"
       ref={containerRef}
     >
-      <h1 className="text-4xl font-bold mb-12 text-center">
-        My Project Gallery
-      </h1>
+      <h1 className="text-4xl font-bold mb-12 text-center">Webdevelopment</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <Card
