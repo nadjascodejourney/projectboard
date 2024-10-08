@@ -40,9 +40,26 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   // : ThemeProviderProps is a type assertion that tells TypeScript that the props passed to the ThemeProvider component must adhere to the ThemeProviderProps type.
 
+  // The function ThemeProvider gets an object as an argument that adheres to the ThemeProviderProps type.
+  // The props (defaultTheme, storageKey, className, and children) are all packaged into one object by React when the component is rendered. In your case, the ThemeProvider function receives this object as its first argument.
+  // Instead of accessing each individual prop like props.children, props.defaultTheme, etc., the function immediately destructures the object in its parameter, which makes it easier to work with the individual properties.
+  // You can now use 'children', 'defaultTheme', and 'storageKey' directly
+  // without needing to prefix them with 'props.'.
+
+  // We could also write it like this (without destructuring):
+
+  /* export function ThemeProvider(props) {
+    Accessing props individually from the 'props' object
+    const children = props.children;
+    const defaultTheme = props.defaultTheme || "system"; // Providing default value if not passed
+    const storageKey = props.storageKey || "vite-ui-theme"; // Providing default value if not passed
+    const restProps = { ...props }; // Capturing any additional props like className, style, etc.
+    
+   .... Function implementation continues...
+  } */
+
   // STATE:
   const [theme, setTheme] = useState<Theme>( // useState<Theme> is a type assertion that tells TypeScript that the state variable theme must be of type Theme.
-    () =>
-      (localStorage.getItem(storageKey) as Theme) || defaultTheme // the initial value of the theme state is defined by a function that returns the theme stored in local storage or the default theme if no theme is stored.
+    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme // the initial value of the theme state is defined by a function that returns the theme stored in local storage or the default theme if no theme is stored.
   );
 }
