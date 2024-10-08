@@ -62,4 +62,54 @@ export function ThemeProvider({
   const [theme, setTheme] = useState<Theme>( // useState<Theme> is a type assertion that tells TypeScript that the state variable theme must be of type Theme.
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme // the initial value of the theme state is defined by a function that returns the theme stored in local storage or the default theme if no theme is stored.
   );
+
+  // EFFECTS:
+
+  useEffect(() => {
+    const root = window.document.documentElement; // The root element of the document. We need this here, because we want to change the theme of the whole application.
+
+    // Set the theme class on the root
+    root.classList.remove("light", "dark"); // Remove the light and dark classes from the root element, because we want to apply the new theme. This is necessary to avoid conflicts between different themes.
+
+    if (theme === "system") {
+      // If the theme is set to "system"...
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light"; // If the user prefers a dark theme, set the theme to "dark", otherwise set it to "light".
+
+      root.classList.add(systemTheme); // Add the class of the preferred user theme to the root element.
+      return;
+    }
+
+    root.classList.add(theme);
+  }, [theme]);
+
+  const value = {
+    theme: theme, // The current theme.
+    setTheme: (theme: Theme) => {
+      // key setTheme is assigned a function that takes a theme as an argument and sets the theme.
+      localStorage.setItem(storageKey, theme); // Store the theme in local storage.
+      setTheme(theme); // Set the theme.
+    },
+  };
+
+  return (
+    <ThemeProviderContext.Provider {...props} value={value}>
+      {" "}
+      {/* {...props} is a spread operator that passes all the props that are not explicitly defined in the ThemeProviderProps type to the Provider component. This allows to add additional props to the ThemeProvider component without having to explicitly define them in the ThemeProviderProps type. {value} is the value that the ThemeProviderContext.Provider will provide to its children, which includes the theme and setTheme function. */}
+      {children}
+    </ThemeProviderContext.Provider>
+  );
 }
+
+export const useTheme = () => {
+  const themeContext = useContext(ThemeProviderContext);
+
+  // If the themeContext is undefined, it means that the useTheme hook is being used outside of a ThemeProvider component. This is an error
+  if (themeContext === undefined) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+
+    return themeContext;
+  }
+};
