@@ -5,10 +5,12 @@ import Layout from "@/layout/Layout";
 import ErrorPage from "@/pages/ErrorPage";
 import AboutPage from "@/pages/AboutPage";
 
-import ProjectPage from "@/pages/ProjectPage";
+import WebdevProjectPage from "@/pages/WebdevProjectPage";
 import CVPage from "@/pages/CVPage";
 import ContactPage from "@/pages/ContactPage";
 import Imprint from "@/pages/Imprint.tsx";
+import WebdesignProjectsPage from "@/pages/WebdesignProjectsPage";
+import OtherProjectsPage from "@/pages/OtherProjectsPage";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -21,7 +23,18 @@ const Router = () => {
           path: "/about",
           element: <AboutPage />,
         },
-        { path: "/projects", element: <ProjectPage /> },
+        {
+          path: "/webdevprojects",
+          element: <WebdevProjectPage />,
+        },
+        {
+          path: "/webdesignprojects",
+          element: <WebdesignProjectsPage />,
+        },
+        {
+          path: "/otherprojects",
+          element: <OtherProjectsPage />,
+        },
         {
           path: "cv",
           element: <CVPage />,

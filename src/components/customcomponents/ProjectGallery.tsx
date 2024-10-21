@@ -12,6 +12,7 @@ interface Project {
   id: number;
   title: string;
   description: string;
+  link: string;
   imageUrl: string;
 }
 
@@ -19,37 +20,43 @@ const projects: Project[] = [
   {
     id: 1,
     title: "gemischteGefühle (beta)",
-    description: "A Mental Health Tracker (Teamwork)",
+    description: "A Mental Health Tracker (Teamwork, Fullstack)",
+    link: "https://gemischtegefuehle-app.onrender.com/",
     imageUrl: "https://fakeimg.pl/400x400/f5f0f0/909090?text=Project",
   },
   {
     id: 2,
     title: "Raptor API",
-    description: "An API about Raptors",
+    description: "An API about Raptors (Backend with Node.js)",
+    link: "https://github.com/nadjascodejourney/backendproject-birdsofprey-api",
     imageUrl: "https://fakeimg.pl/400x400/f5f0f0/909090?text=Project",
   },
   {
     id: 3,
     title: "Quizzell (beta)",
-    description: "A Film- and Art-Quiz App (Teamwork)",
+    description: "A Film- and Art-Quiz (Teamwork, SPA with React)",
+    link: "https://github.com/nadjascodejourney/quizproject",
     imageUrl: "https://fakeimg.pl/400x400/f5f0f0/909090?text=Project",
   },
   {
     id: 4,
     title: "Scrolling in 3D Website",
     description: "A Demo for 3D Scrolling",
+    link: "https://scrollr3fproject.vercel.app/",
     imageUrl: "https://fakeimg.pl/400x400/f5f0f0/909090?text=Project",
   },
   {
     id: 5,
     title: "Meowstery - A Text Adventure Game",
-    description: "A Demo for a retro, textbased game",
+    description: "A retro, textbased game to play in the Terminal",
+    link: "https://github.com/nadjascodejourney/meowstery-Textadventure",
     imageUrl: "https://fakeimg.pl/400x400/f5f0f0/909090?text=Project",
   },
   {
     id: 6,
     title: "Birds of Prey Website",
     description: "A Website about Raptors (work in progress)",
+    link: "https://github.com/nadjascodejourney/birdsOfPrey-Project",
     imageUrl: "https://fakeimg.pl/400x400/f5f0f0/909090?text=Project",
   },
 ];
@@ -105,6 +112,16 @@ export default function ProjectGallery() {
             <CardHeader>
               <CardTitle>{project.title}</CardTitle>
               <CardDescription>{project.description}</CardDescription>
+              <CardDescription>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-accent underline"
+                >
+                  Visit project
+                </a>
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <img
