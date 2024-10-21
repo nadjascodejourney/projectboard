@@ -16,17 +16,17 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Webdevelopment",
-    href: "/projects",
+    href: "/webdevprojects",
     description: "Current and past Projects.",
   },
   {
     title: "Webdesign",
-    href: "/projects",
-    description: "Designs I´ve created for websites.",
+    href: "/webdesignprojects",
+    description: "Designs, I´ve created for websites.",
   },
   {
     title: "Other Projects",
-    href: "/projects",
+    href: "/otherprojects",
     description: "Other projects, I´ve done in the past.",
   },
 ];
@@ -38,7 +38,7 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>About</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <Link
