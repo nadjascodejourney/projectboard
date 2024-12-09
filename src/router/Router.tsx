@@ -4,7 +4,7 @@ import Layout from "@/layout/Layout";
 
 import ErrorPage from "@/pages/ErrorPage";
 import AboutPage from "@/pages/AboutPage";
-
+import HomePage from "@/pages/HomePage";
 import WebdevProjectPage from "@/pages/WebdevProjectPage";
 import CVPage from "@/pages/CVPage";
 import ContactPage from "@/pages/ContactPage";
@@ -19,6 +19,10 @@ const Router = () => {
       element: <Layout />,
       errorElement: <ErrorPage />,
       children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
         {
           path: "/about",
           element: <AboutPage />,
