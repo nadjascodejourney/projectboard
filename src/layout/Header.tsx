@@ -4,7 +4,7 @@ import { NavigationMenuDemo } from "@/components/demo/NavigationMenu";
 
 const Header = () => {
   return (
-    <header className="flex flex-row p-6 justify-between">
+    <header className="sticky top-0 z-10 flex flex-row p-6 justify-between bg-background shadow-lg">
       <AvatarDemo />
       <NavigationMenuDemo />
       <ThemeToggle />

@@ -1,7 +1,28 @@
+import { Link } from "react-router-dom";
+
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+
 const Footer = () => {
   return (
-    <footer className="fixed bottom-0 left-0 right-0 flex flex-col items-center pb-4 ">
-      © Nadja Probst 2024
+    <footer className="mt-auto py-4 flex flex-col items-center">
+      <NavigationMenu className="flex">
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuLink asChild>
+              <Link to="/imprint" className={navigationMenuTriggerStyle()}>
+                Imprint
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+      <p> © Nadja Probst 2025</p>
     </footer>
   );
 };

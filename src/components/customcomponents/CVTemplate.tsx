@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
+import AboutCard from "./AboutCard";
 
 interface Experience {
   title: string;
@@ -32,7 +32,6 @@ export default function CVTemplate() {
     title: "Web Developer & Designer",
     email: "nadja.probst25@gmail.com",
     location: "Regensburg, Germany",
-    website: "github.com/nadjascodejourney",
     avatar: "/src/assets/icons/profilpic-32x32.png",
   };
 
@@ -41,17 +40,19 @@ export default function CVTemplate() {
     "CSS",
     "JavaScript",
     "TypeScript",
+    "C#",
+    ".NET",
     "React",
     "Node.js",
     "Express",
     "MongoDB",
     "Mongoose",
-    "SQLLite",
+    "SQL Server",
     "Figma",
     "UI/UX Design",
     "Git",
     "GitHub",
-    "RESTful APIs",
+    "GitLab",
     "Sass/SCSS",
     "Tailwind CSS",
     "Zod",
@@ -59,17 +60,29 @@ export default function CVTemplate() {
     "Three.js",
     "React Three Fiber",
     "shadcn/ui",
+    "Ant Design",
   ];
 
   const experiences: Experience[] = [
     {
-      title: "Professional reorientation to Web Development",
+      title: "Software Developer and Webdesigner (full-time)",
+      organization: {
+        name: "Synnotech AG, Regensburg",
+        type: "company",
+      },
+      period: "11-2024 until today",
+      description:
+        "Fullstack Development with a focus on frontend development with React, Typescript and diverse libraries, Backend development with C# and .NET, Database management with SQL Server, Enterprise UX/UI Design with Figma, Accessibility optimization, etc.",
+    },
+    {
+      title: "Vocational Training for Webdevelopment (MERN Stack, full-time)",
       organization: {
         name: "Digital Career Institute",
         type: "institution",
       },
-      period: "2023 - Present",
-      description: "...",
+      period: "09-2023 until 10-2024",
+      description:
+        "Successfully completed the vocational training for web development with a focus on the MERN stack. Gained practical experience in building web applications, using and creating RESTful APIs and database management with a focus on non-relational Databases. Elaborated deepened skills in front-end development with React, CSS and UI component libraries. Developed hands-on projects both in individual and team work, and acquired problem-solving skills essential for modern web development.",
     },
     {
       title: "Head of Museum Education (full-time)",
@@ -78,7 +91,7 @@ export default function CVTemplate() {
         type: "company",
       },
 
-      period: "2021 - 2023",
+      period: "01-2022 until 05-2023",
       description:
         "Lead museum educator: Conceptualization of the educational program for different target groups, on-site and digital. Developing of guided tours for children, Realization of workshops for adults and retired people to increase visitors engagement with external cooperation partners, Content design of media stations, Support of the website in easy language, etc.",
     },
@@ -90,7 +103,7 @@ export default function CVTemplate() {
         type: "company",
       },
 
-      period: "2020 - 2021",
+      period: "08-2020 until 11-2021",
       description:
         "Development and production of an audio guide by and for children and families in collaboration with schools in the region, Workshops for children and schools, Creation of educational materials, etc.",
     },
@@ -102,7 +115,7 @@ export default function CVTemplate() {
         type: "company",
       },
 
-      period: "2017 - 2020",
+      period: "11-2017 until 08-2020",
       description:
         "Workshops for children and schools, Creation of an Exhibition booklet for children, etc.",
     },
@@ -164,46 +177,37 @@ export default function CVTemplate() {
   ];
 
   return (
-    <div className="container mx-auto p-6 bg-background">
+    <section className="container bg-background">
+      <h2 className="text-3xl font-bold mb-5">About Nadja Probst</h2>
+
       <Card className="mb-6">
-        <CardContent className="flex flex-col md:flex-row items-center gap-4 pt-6">
-          <Avatar className="w-24 h-24">
-            <AvatarImage src={personalInfo.avatar} alt={personalInfo.name} />
-            <AvatarFallback>
-              {personalInfo.name
-                .split(" ") // Get initials from first and last name
-                .map((n) => n[0]) // Get first letter of each name
-                .join("")}{" "}
-              {/* Join Initials */}
-            </AvatarFallback>
-          </Avatar>
-          <div className="text-center md:text-left">
-            <h1 className="text-3xl font-bold">{personalInfo.name}</h1>
+        <CardContent className="flex flex-col md:flex-row gap-4 pt-6">
+          <section className="text-center md:text-left">
             <p className="text-xl text-muted-foreground">
               {personalInfo.title}
             </p>
             <div className="mt-2 space-y-1">
               <p>{personalInfo.email}</p>
-              <p>
-                {personalInfo.location} | {personalInfo.website}
-              </p>
+              <p>{personalInfo.location}</p>
             </div>
-          </div>
+          </section>
         </CardContent>
       </Card>
 
-      <Card className="mb-6">
+      <AboutCard profileImageUrl="/icons/Nadja_Probst-black.jpg" />
+
+      <Card className="mb-6 bg-transparent">
         <CardHeader>
-          <CardTitle>Technical Skills</CardTitle>
+          <CardTitle>Skills</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-wrap gap-2">
+          <section className="flex flex-wrap gap-2">
             {skills.map((skill, index) => (
               <Badge key={index} variant="default">
                 {skill}
               </Badge>
             ))}
-          </div>
+          </section>
         </CardContent>
       </Card>
 
@@ -225,7 +229,7 @@ export default function CVTemplate() {
         </CardContent>
       </Card>
 
-      <Card className="mb-6">
+      <Card className="mb-6 bg-transparent">
         <CardHeader>
           <CardTitle>Education</CardTitle>
         </CardHeader>
@@ -243,7 +247,7 @@ export default function CVTemplate() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Selected Projects</CardTitle>
+          <CardTitle>Personal Projects</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           {projects.map((project, index) => (
@@ -262,6 +266,6 @@ export default function CVTemplate() {
           ))}
         </CardContent>
       </Card>
-    </div>
+    </section>
   );
 }
