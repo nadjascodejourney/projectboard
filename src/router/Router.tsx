@@ -6,7 +6,6 @@ import ErrorPage from "@/pages/ErrorPage";
 import AboutPage from "@/pages/AboutPage";
 import HomePage from "@/pages/HomePage";
 import WebdevProjectPage from "@/pages/WebdevProjectPage";
-import CVPage from "@/pages/CVPage";
 import ContactPage from "@/pages/ContactPage";
 import Imprint from "@/pages/Imprint.tsx";
 import WebdesignProjectsPage from "@/pages/WebdesignProjectsPage";
@@ -38,10 +37,6 @@ const Router = () => {
         {
           path: "/otherprojects",
           element: <OtherProjectsPage />,
-        },
-        {
-          path: "cv",
-          element: <CVPage />,
         },
         {
           path: "contact",

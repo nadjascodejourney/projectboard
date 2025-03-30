@@ -13,18 +13,26 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const components: { title: string; href: string; description: string }[] = [
+const workItems: {
+  id: string;
+  title: string;
+  href: string;
+  description: string;
+}[] = [
   {
+    id: "webdev",
     title: "Webdevelopment",
     href: "/webdevprojects",
     description: "Current and past Projects.",
   },
   {
+    id: "webdesign",
     title: "Webdesign",
     href: "/webdesignprojects",
     description: "Designs, I´ve created for websites.",
   },
   {
+    id: "otherProjects",
     title: "Other Projects",
     href: "/otherprojects",
     description: "Other projects, I´ve done in the past.",
@@ -36,57 +44,32 @@ export function NavigationMenuDemo() {
     <NavigationMenu className="flex">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>About</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    to="/about" // Use `to` prop instead of `href`
-                  >
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      Nadja Probst
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Webdeveloper and UX/UI Designer with a strong background
-                      in communication, education and arts.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/cv" title="CV">
-                Learn more about me and my working experience.
-              </ListItem>
-
-              <ListItem href="/contact" title="Contact">
-                How to get in touch with me.
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
+          <Link to="/about" className={navigationMenuTriggerStyle()}>
+            About
+          </Link>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
           <NavigationMenuTrigger>Work</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 sm:w-[200px] md:w-[500px] lg:w-[600px] md:grid-cols-2">
-              {components.map((component) => (
+              {workItems.map((workItem) => (
                 <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
+                  key={workItem.id}
+                  title={workItem.title}
+                  href={workItem.href}
                 >
-                  {component.description}
+                  {workItem.description}
                 </ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
-          <NavigationMenuLink asChild>
-            <Link to="/imprint" className={navigationMenuTriggerStyle()}>
-              Imprint
-            </Link>
-          </NavigationMenuLink>
+          <Link to="/contact" className={navigationMenuTriggerStyle()}>
+            Contact
+          </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

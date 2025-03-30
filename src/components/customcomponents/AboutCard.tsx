@@ -1,10 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 
 interface ProfileCardProps {
-  name: string;
-  profession: string;
-  introduction: string;
-  profileImageUrl: string;
+  name?: string;
+  profession?: string;
+  introduction?: string;
+  profileImageUrl?: string;
 }
 
 export default function AboutCard({
@@ -14,21 +14,19 @@ export default function AboutCard({
   profileImageUrl,
 }: ProfileCardProps) {
   return (
-    <Card className="w-full max-w-4xl mx-auto pt-10">
-      <CardContent className="space-y-8">
-        <div className="flex justify-center">
-          <img
-            src={profileImageUrl}
-            alt={`Profile of ${name}`}
-            className=" w-full  object-cover shadow-lg"
-          />
-        </div>
-        <div className="text-center">
+    <Card className="w-full mb-7 pt-10 bg-transparent shadow-none">
+      <CardContent>
+        <img
+          src={profileImageUrl}
+          alt={`Profile of ${name}`}
+          className=" w-full object-cover shadow-lg rounded-md"
+        />
+        <section className="text-center">
           <h2 className="text-2xl font-semibold">{name}</h2>
           <p className="text-xl text-muted-foreground mt-2">{profession}</p>
-        </div>
-        <div className="max-w-none text-lg ">
-          {introduction.split("\n\n").map(
+        </section>
+        <section className="max-w-none text-lg ">
+          {introduction?.split("\n\n").map(
             (
               paragraph,
               index // Split paragraphs by double line breaks, which means that there are two newlines between paragraphs
@@ -38,7 +36,7 @@ export default function AboutCard({
               </p>
             )
           )}
-        </div>
+        </section>
       </CardContent>
     </Card>
   );

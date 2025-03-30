@@ -7,7 +7,7 @@ import {
 
 const Imprint = () => {
   return (
-    <main className="w-full">
+    <main className="container mx-auto p-6">
       <Accordion type="single" collapsible className="w-full">
         {/* English Version */}
         <AccordionItem value="english">
